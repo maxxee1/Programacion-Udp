@@ -85,3 +85,17 @@ class Encuestas
         cout << "No contesta : " << nocontes << endl;
     }
 };
+
+int main()
+{
+    cout << endl << endl << "Bienvenid@ al registro de preferencias sobre el Plebicito"<< endl << endl;
+    int x; cout << "Ingrese la cantidad de encuestados: "; cin >> x; cout << endl;
+
+    for(int i=0 ; i<=x;i++)
+    {
+        string x;
+        cout << "Encuestado " << i << endl;
+        cin >> x;
+        
+    }
+}

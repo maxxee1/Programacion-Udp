@@ -36,6 +36,6 @@ public class Lab
                 matriz[i][j] = leer.nextInt();
             }
         }
-        
+        leer.close();   
 	}
 }

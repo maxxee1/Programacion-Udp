@@ -15,7 +15,7 @@ public class Lab
             System.out.println("(M) Ingrese un numero entre 1 y 1000");
             M = leer.nextInt();
         }
-        while (1 > M || M > 1000);
+        while (1 > M || M > 100);
         
         do{
             System.out.println("(N) Ingrese un numero entre 1 y 1000");

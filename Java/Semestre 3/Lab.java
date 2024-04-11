@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Lab
@@ -12,30 +13,35 @@ public class Lab
         
         // declaracion y verificaciones de M y N 
         do{
-            System.out.println("(M) Ingrese un numero entre 1 y 1000");
+            System.out.println("(M)(N) entre 1 y 1000");
+            
             M = leer.nextInt();
-        }
-        while (1 > M || M > 100);
-        
-        do{
-            System.out.println("(N) Ingrese un numero entre 1 y 1000");
             N = leer.nextInt();
         }
-        while (1 > N || N > 1000);
+        while ((1 > M || M > 1000) || (1 > N || N > 1000)) ;
         
-        System.out.println(M);
-        System.out.println(N);
         
-        int[][] matriz = new int [M][N]; // declaracion de la matriz
+        int[][] matriz = new int [N][M]; // declaracion de la matriz
         
-        for(int i = 0; i < M; i++)
+        for(int i = 0; i < N; i++)
         {
-            for(int j = 0; j < N; j++)
+            for(int j = 0; j < M; j++)
             {
-                System.out.print("Ingrese un elemento");
-                matriz[i][j] = leer.nextInt();
+                int valor;
+                do {
+                    System.out.print("Ingrese un elemento ["+i+"]["+j+"]: ");
+                    valor = leer.nextInt();
+
+                }while(valor < 1 || valor > Math.pow(10, 8));
+
+            matriz[i][j] = valor;
             }
         }
-        leer.close();   
+        leer.close();
+
+        for(int i = 0; i < N; i++)
+        {
+            System.out.println(Arrays.toString(matriz[i]));
+        }
 	}
 }

@@ -1,5 +1,5 @@
-package Algoritmos; 
-import java.util.Arrays;
+package Algoritmos;
+
 
 public class Selectionsort {
     public static void main(String[] args) {

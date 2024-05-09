@@ -1,12 +1,12 @@
 package stotify.clases;
 
-public class cancion {
+public class Cancion {
     private String titulo;
     private String artista;
     private int duracion;
     
     
-    public cancion (String titulo, String artista, int duracion) {
+    public Cancion (String titulo, String artista, int duracion) {
         this.titulo = titulo;
         this.artista = artista;
         this.duracion = duracion;

@@ -1,5 +1,7 @@
 package stotify.clases;
+import java.util.Collections;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 public class Reproductor {
@@ -56,9 +58,14 @@ public class Reproductor {
     }
 
     // Reproducir Playlist
-    
+    public void reproducirPlaylistlista(LinkedList<Cancion> playlist) {
+        listaCanciones = playlist; // Establecer la lista de canciones de la playlist
+        reproducirCanciones(); // Llamar al método para reproducir las canciones
+    }
+
 
     // METODOS COLAS
+
     // Agregar cancion (colas)
     public void agregarCancioncola(Cancion cancion) {
         colaCanciones.offer(cancion);
@@ -79,5 +86,22 @@ public class Reproductor {
         else {
             System.out.println("La cola de canciones está vacía.");
         }
+    }
+
+    // Reproducir Playlist en orden (cola)
+    public void reproducirPlaylistcola(Queue<Cancion> Playlist) {
+        reproducirCancion(Playlist);
+    }
+
+    // Reproducir Playlist en orden aleatorio
+     public static void reproducirPlaylistAleatoria(List<Cancion> listaCanciones) {
+        // Mezclar la lista de canciones
+        Collections.shuffle(listaCanciones);
+        
+        // Reproducir las canciones de la lista mezclada
+        for (Cancion cancion : listaCanciones) {
+            System.out.println("Reproduciendo: " + cancion.getTitulo());
         }
+    }
 }
+    

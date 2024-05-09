@@ -6,6 +6,8 @@ public class Playlist {
     private String playlistnombre;
     private ArrayList<Cancion> canciones;
     private Cancion[] arreglocanciones;
+    private int tamano;
+    private int capacidad;
 
     // Constructor para usar lista enlazada
     public Playlist(String playlistnombre) {
@@ -14,9 +16,11 @@ public class Playlist {
     }
 
     // Constructor para usar arreglo
-    public Playlist(String nombre, int tamano) {
+    public Playlist(String nombre, int capacidad) {
         this.playlistnombre = nombre;
-        this.arreglocanciones = new Cancion[tamano];
+        this.capacidad = capacidad;
+        this.arreglocanciones = new Cancion[capacidad];
+        tamano = 0;
     }
 
     // Getters
@@ -36,22 +40,36 @@ public class Playlist {
     public void setCanciones(ArrayList<Cancion> canciones) {
         this.canciones = canciones;
     }
+    // METODOS ARREGLOS
 
-    // Metodo agregar cancion (arreglo de canciones)
-    public void agregarCancionPlaylist(Cancion[] arreglocanciones, Cancion cancion) {
-        for (int i = 0; i < arreglocanciones.length; i++) {
-            if (arreglocanciones[i] == null) {
-                arreglocanciones[i] = cancion;
-                return;
-            }
+    // Metodo agregar cancion
+    public void agregarCancion(Cancion cancion) {
+        if (tamano == capacidad) {
+            expandirArreglo();
         }
-        System.out.println("La playlist está llena, no se puede agregar más canciones.");
+        arreglocanciones[tamano] = cancion;
+        tamano++;
     }
 
-    // Metodo agregar cancion (lista enlazada)
+    // Método para expandir el arreglo cuando sea necesario
+    private void expandirArreglo() {
+        int nuevaCapacidad = (capacidad + 1) * 2;
+        Cancion[] nuevoArreglo = new Cancion[nuevaCapacidad];
+        System.arraycopy(arreglocanciones, 0, nuevoArreglo, 0, tamano);
+        arreglocanciones = nuevoArreglo;
+        capacidad = nuevaCapacidad;
+    }
+
+    // METODOS LISTA ENLAZADA
+
+    // Metodo agregar cancion
     public void agregarCancionPlaylist(Cancion cancion) {
         canciones.add(cancion);
-    
+    }
+
+    // Metodo eliminar cancion
+    public void eliminarCancionPlaylist(Cancion cancion) {
+        canciones.remove(cancion);
     }
 }
 

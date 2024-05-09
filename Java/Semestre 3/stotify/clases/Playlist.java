@@ -1,10 +1,10 @@
 package stotify.clases;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class Playlist {
     private String playlistnombre;
-    private ArrayList<Cancion> canciones;
+    private LinkedList<Cancion> canciones;
     private Cancion[] arreglocanciones;
     private int tamano;
     private int capacidad;
@@ -12,7 +12,7 @@ public class Playlist {
     // Constructor para usar lista enlazada
     public Playlist(String playlistnombre) {
         this.playlistnombre = playlistnombre;
-        this.canciones = new ArrayList<Cancion>();
+        this.canciones = new LinkedList<>();
     }
 
     // Constructor para usar arreglo
@@ -28,7 +28,7 @@ public class Playlist {
         return playlistnombre;
     }
 
-    public ArrayList<Cancion> getCanciones() {
+    public LinkedList<Cancion> getCanciones() {
         return canciones;
     }
 
@@ -37,7 +37,7 @@ public class Playlist {
         this.playlistnombre = playlistnombre;
     }
 
-    public void setCanciones(ArrayList<Cancion> canciones) {
+    public void setCanciones(LinkedList<Cancion> canciones) {
         this.canciones = canciones;
     }
     // METODOS ARREGLOS
@@ -60,6 +60,29 @@ public class Playlist {
         capacidad = nuevaCapacidad;
     }
 
+    // Quitar cancion del arreglo
+    public void quitarCancion(Cancion cancion) {
+
+        // Creamos un nuevo array para almacenar las canciones sin la canción a eliminar
+        Cancion[] nuevoArreglo = new Cancion[arreglocanciones.length - 1];
+        
+        // Índice para el nuevo arreglo
+        int j = 0;
+        
+        // Recorremos el arreglo original
+        for (int i = 0; i < arreglocanciones.length; i++) {
+            // Si la canción actual no es la que queremos eliminar se la agregamos al nuevo arreglo
+            if (arreglocanciones[i] != cancion) {
+                nuevoArreglo[j] = arreglocanciones[i];
+                j++;
+                
+            }
+        }
+        
+        // Reemplazamos el arreglo original con el nuevo arreglo que no contiene la canción
+        arreglocanciones = nuevoArreglo;
+    }
+
     // METODOS LISTA ENLAZADA
 
     // Metodo agregar cancion
@@ -71,6 +94,14 @@ public class Playlist {
     public void eliminarCancionPlaylist(Cancion cancion) {
         canciones.remove(cancion);
     }
+
+    // Metodo eliminar TODAS las canciones iguales
+    public void eliminarTodascancion(Cancion cancion) {
+
+        for(int i=0; i< canciones.size(); i++) {
+            if(canciones.get(i).equals(cancion)) {
+                canciones.remove(i);
+            }
+        }
+    }
 }
-
-

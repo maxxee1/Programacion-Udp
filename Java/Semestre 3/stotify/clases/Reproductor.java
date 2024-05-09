@@ -63,6 +63,14 @@ public class Reproductor {
         reproducirCanciones(); // Llamar al método para reproducir las canciones
     }
 
+     // Reproducir Playlist aleaotrio (listas)
+     public void reproducirPlaylistlistaAleatorio(LinkedList<Cancion> Playlist) {
+        List<Cancion> listaAleatoria = new LinkedList<>(Playlist);
+        Collections.shuffle(listaAleatoria);
+        listaCanciones = new LinkedList<>(listaAleatoria);
+        reproducirCanciones();
+    }
+
 
     // METODOS COLAS
 
@@ -93,15 +101,15 @@ public class Reproductor {
         reproducirCancion(Playlist);
     }
 
-    // Reproducir Playlist en orden aleatorio
-     public static void reproducirPlaylistAleatoria(List<Cancion> listaCanciones) {
-        // Mezclar la lista de canciones
-        Collections.shuffle(listaCanciones);
-        
-        // Reproducir las canciones de la lista mezclada
-        for (Cancion cancion : listaCanciones) {
-            System.out.println("Reproduciendo: " + cancion.getTitulo());
-        }
+    // Reproducir Playlist en orden aleatorio (cola)
+    public void reproducirPlaylistcolaAleatorio(Queue<Cancion> Playlist) {
+        List<Cancion> listaAleatoria = new LinkedList<>(Playlist);
+        Collections.shuffle(listaAleatoria);
+        Queue<Cancion> colaAleatoria = new LinkedList<>(listaAleatoria);
+        reproducirCancion(colaAleatoria);
     }
+
+    // Cambiar orden de 2 canciones en la Playlist (cola)
+    // recibe las posiciones de las canciones a intercambiar (i,j)
 }
-    
+

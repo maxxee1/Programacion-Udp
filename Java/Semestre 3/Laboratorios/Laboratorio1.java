@@ -1,7 +1,9 @@
+package Laboratorios;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Lab {
+public class Laboratorio1 {
     public static void main(String[] args) {
         Scanner leer = new Scanner(System.in); // creacion objeto Scanner
         System.out.println("Ingrese 2 numeros enteros M N" +

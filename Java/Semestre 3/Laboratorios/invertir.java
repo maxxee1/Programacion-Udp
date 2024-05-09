@@ -1,3 +1,5 @@
+package Laboratorios;
+
 import java.util.Scanner;
 
 public class invertir {

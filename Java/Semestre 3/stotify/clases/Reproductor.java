@@ -36,43 +36,7 @@ public class Reproductor {
         this.listaCanciones = listaCanciones;
     }
 
-    // METODOS LISTAS
-
-    // Agregar canción a la cola de reproducción (listas)
-    public void agregarCancion(Cancion cancion) {
-        listaCanciones.add(cancion);
-    }
-
-    // Quitar canción de la cola de reproducción (listas)
-    public void quitarCancion(Cancion cancion) {
-        listaCanciones.remove(cancion);
-    }
-
-    // Reproducir canciones en orden usando listas enlazadas
-    public void reproducirCanciones() {
-        // Recorrer la lista de canciones y reproducirlas
-        for (Cancion cancion : listaCanciones) {
-            // Simular la reproducción de la canción
-            System.out.println("Reproduciendo: " + cancion.getTitulo());
-        }
-    }
-
-    // Reproducir Playlist
-    public void reproducirPlaylistlista(LinkedList<Cancion> playlist) {
-        listaCanciones = playlist; // Establecer la lista de canciones de la playlist
-        reproducirCanciones(); // Llamar al método para reproducir las canciones
-    }
-
-     // Reproducir Playlist aleaotrio (listas)
-     public void reproducirPlaylistlistaAleatorio(LinkedList<Cancion> Playlist) {
-        List<Cancion> listaAleatoria = new LinkedList<>(Playlist);
-        Collections.shuffle(listaAleatoria);
-        listaCanciones = new LinkedList<>(listaAleatoria);
-        reproducirCanciones();
-    }
-
-
-    // METODOS COLAS
+    /*---------- METODOS  ESTRUCTURAS DINAMICAS (colas y listas) ----------*/
 
     // Agregar cancion (colas)
     public void agregarCancioncola(Cancion cancion) {
@@ -95,7 +59,11 @@ public class Reproductor {
             System.out.println("La cola de canciones está vacía.");
         }
     }
-
+    // Reproducir Playlist en orden (listas)
+    public void reproducirPlaylistlista(LinkedList<Cancion> playlist) {
+        listaCanciones = playlist; // Establecer la lista de canciones de la playlist
+        reproducirCanciones(); // Llamar al método para reproducir las canciones
+    }
     // Reproducir Playlist en orden (cola)
     public void reproducirPlaylistcola(Queue<Cancion> Playlist) {
         reproducirCancion(Playlist);
@@ -111,5 +79,107 @@ public class Reproductor {
 
     // Cambiar orden de 2 canciones en la Playlist (cola)
     // recibe las posiciones de las canciones a intercambiar (i,j)
+    public void cambiarOrdenCanciones(int i, int j) {
+        // Convertir la cola a una lista
+        List<Cancion> listaCanciones = new LinkedList<>(colaCanciones);
+        // Intercambiar las canciones
+        Collections.swap(listaCanciones, i, j);
+        // Convertir la lista a una cola
+        colaCanciones = new LinkedList<>(listaCanciones);
+    } 
+
+   
+
+    // Quitar canción de la cola de reproducción (listas)
+    public void quitarCancion(Cancion cancion) {
+        listaCanciones.remove(cancion);
+    }
+
+    // Reproducir canciones en orden usando listas enlazadas
+    public void reproducirCanciones() {
+        // Recorrer la lista de canciones y reproducirlas
+        for (Cancion cancion : listaCanciones) {
+            // Simular la reproducción de la canción
+            System.out.println("Reproduciendo: " + cancion.getTitulo());
+        }
+    }
+
+     // Reproducir Playlist aleaotrio (listas)
+     public void reproducirPlaylistlistaAleatorio(LinkedList<Cancion> Playlist) {
+        List<Cancion> listaAleatoria = new LinkedList<>(Playlist);
+        Collections.shuffle(listaAleatoria);
+        listaCanciones = new LinkedList<>(listaAleatoria);
+        reproducirCanciones();
+    }
+
+    // Cambiar orden de 2 canciones en la Playlist (listas)
+    // recibe las posiciones de las canciones a intercambiar (i,j)
+    public void cambiarOrdenCancionesLista(int i, int j) {
+        // Intercambiar las canciones
+        Collections.swap(listaCanciones, i, j);
+    }
+
+
+    /*----------METODOS ESTRUCTURAS ESTATICAS (arreglos)----------*/
+
+    // Agregar cancion
+    public static Cancion[] agregarCancion(Cancion cancion, Cancion[] canciones) {
+        for (int i = 0; i < canciones.length; i++) {
+            if (canciones[i] == null) {
+                canciones[i] = cancion;
+                return canciones;
+            }
+        }
+    
+        // Si llegamos a este punto significa que el arreglo está lleno
+        // Y creamos un nuevo arreglo con un tamaño mayor
+        Cancion[] cancionesNuevas = new Cancion[canciones.length + 1];
+    
+        // Copiamos los elementos del arreglo original al nuevo.
+        for (int i = 0; i < canciones.length; i++) {
+            cancionesNuevas[i] = canciones[i];
+        }
+    
+        // Agregamos la nueva canción al final del nuevo arreglo.
+        cancionesNuevas[cancionesNuevas.length - 1] = cancion;
+    
+        // Devolvemos el nuevo arreglo.
+        return cancionesNuevas;
+    }
+
+    // Quitar cancion (arreglos)
+    public static Cancion[] quitarCancion(Cancion cancion, Cancion[] canciones) {
+        // Creamos un nuevo arreglo para almacenar las canciones sin la canción a eliminar
+        Cancion[] nuevoArreglo = new Cancion[canciones.length - 1];
+        
+        // Índice para el nuevo arreglo
+        int j = 0;
+        
+        // Recorremos el arreglo original
+        for (int i = 0; i < canciones.length; i++) {
+            // Si la canción actual no es la que queremos eliminar se la agregamos al nuevo arreglo
+            if (canciones[i] != cancion) {
+                nuevoArreglo[j] = canciones[i];
+                j++;
+                
+            }
+        }
+        
+        // Devolvemos el nuevo arreglo que no contiene la canción
+        return nuevoArreglo;
+    }  
+
+    // Reproducir Playlist aleatorio (arreglos)
+    public void reproducirPlaylistAleatorio(Cancion[] canciones) {
+        // Convertir el arreglo a una lista
+        List<Cancion> listaCanciones = new LinkedList<>();
+        for (Cancion cancion : canciones) {
+            if (cancion != null) {
+                listaCanciones.add(cancion);
+            }
+        }
+        // Llamar al método para reproducir la lista de canciones en orden aleatorio
+        reproducirPlaylistlistaAleatorio(new LinkedList<>(listaCanciones));
+    }
 }
 

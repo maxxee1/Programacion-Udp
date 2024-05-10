@@ -40,7 +40,8 @@ public class Playlist {
     public void setCanciones(LinkedList<Cancion> canciones) {
         this.canciones = canciones;
     }
-    // METODOS ARREGLOS
+   
+    /*----------METODOS ESTATICOS (arreglos)----------*/
 
     // Metodo agregar cancion
     public void agregarCancion(Cancion cancion) {
@@ -60,7 +61,7 @@ public class Playlist {
         capacidad = nuevaCapacidad;
     }
 
-    // Quitar cancion del arreglo
+    // Quitar cancion
     public void quitarCancion(Cancion cancion) {
 
         // Creamos un nuevo array para almacenar las canciones sin la canción a eliminar
@@ -83,19 +84,19 @@ public class Playlist {
         arreglocanciones = nuevoArreglo;
     }
 
-    // METODOS LISTA ENLAZADA
+    /*----------METODOS DINAMICOS (lista enlazada, colas)----------*/
 
-    // Metodo agregar cancion
+    // Metodo agregar cancion (lista enlazada)
     public void agregarCancionPlaylist(Cancion cancion) {
         canciones.add(cancion);
     }
 
-    // Metodo eliminar cancion
+    // Metodo eliminar cancion (lista enlazada)
     public void eliminarCancionPlaylist(Cancion cancion) {
         canciones.remove(cancion);
     }
 
-    // Metodo eliminar TODAS las canciones iguales
+    // Metodo eliminar TODAS las canciones iguales (lista enlazada)
     public void eliminarTodascancion(Cancion cancion) {
 
         for(int i=0; i< canciones.size(); i++) {

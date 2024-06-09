@@ -1,4 +1,4 @@
-package Laboratorios;
+//packageLaboratorios;
 
 import java.util.Scanner;
 

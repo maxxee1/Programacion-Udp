@@ -1,4 +1,4 @@
-package Laboratorios;
+//package Laboratorios;
 
 import java.util.Arrays;
 import java.util.Scanner;

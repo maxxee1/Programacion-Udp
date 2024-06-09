@@ -1,5 +1,6 @@
 package stotify.clases;
 
+
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
@@ -77,6 +78,7 @@ public class Reproductor {
         Queue<Cancion> colaAleatoria = new LinkedList<>(listaAleatoria);
         reproducirCancion(colaAleatoria);
     }
+    
 
     // Cambiar orden de 2 canciones en la Playlist (cola)
     public void cambiarOrdenCanciones(int i, int j) {
@@ -97,13 +99,6 @@ public class Reproductor {
         }
     }
 
-    // Reproducir Playlist aleatorio (listas)
-    public void reproducirPlaylistlistaAleatorio(LinkedList<Cancion> Playlist) {
-        List<Cancion> listaAleatoria = new LinkedList<>(Playlist);
-        Collections.shuffle(listaAleatoria);
-        listaCanciones = new LinkedList<>(listaAleatoria);
-        reproducirCanciones();
-    }
 
     // Cambiar orden de 2 canciones en la Playlist (listas)
     public void cambiarOrdenCancionesLista(int i, int j) {
@@ -145,14 +140,31 @@ public class Reproductor {
         return nuevoArreglo;
     }
 
+    // Reproducir Playlist en orden aleatorio (listas)
+    public void reproducirPlaylistlistaAleatorio(LinkedList<Cancion> playlist) {
+        List<Cancion> listaAleatoria = new LinkedList<>(playlist);
+        Collections.shuffle(listaAleatoria);
+        reproducirCanciones(listaAleatoria);
+    }
+
+    // Reproducir canciones en orden usando listas enlazadas
+    public void reproducirCanciones(List<Cancion> listaCanciones) {
+        for (Cancion cancion : listaCanciones) {
+            System.out.println("Reproduciendo: " + cancion.getTitulo());
+        }
+    }
+
+
     // Reproducir Playlist aleatorio (arreglos)
     public void reproducirPlaylistAleatorio(Cancion[] canciones) {
+        // Convertir el arreglo a una lista
         List<Cancion> listaCanciones = new LinkedList<>();
         for (Cancion cancion : canciones) {
             if (cancion != null) {
                 listaCanciones.add(cancion);
             }
         }
+        // llamar al método para reproducir la lista de canciones en orden aleatorio
         reproducirPlaylistlistaAleatorio(new LinkedList<>(listaCanciones));
     }
 

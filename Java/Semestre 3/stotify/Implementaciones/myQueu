@@ -1,0 +1,79 @@
+package stotify.clases;
+
+public class Queue<T> {
+    private Node<T> front;
+    private Node<T> rear;
+    private int size;
+
+    // Constructor
+    public Queue() {
+        front = null;
+        rear = null;
+        size = 0;
+    }
+
+    // Método para añadir un elemento al final de la cola
+    public void offer(T data) {
+        Node<T> newNode = new Node<>(data);
+        if (isEmpty()) {
+            front = newNode;
+        } else {
+            rear.setNext(newNode);
+        }
+        rear = newNode;
+        size++;
+    }
+
+    // Método para remover y devolver el elemento al frente de la cola
+    public T poll() {
+        if (isEmpty()) {
+            return null;
+        }
+        T data = front.getData();
+        front = front.getNext();
+        if (front == null) {
+            rear = null;
+        }
+        size--;
+        return data;
+    }
+
+    // Método para verificar si la cola está vacía
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
+    // Método para obtener el tamaño de la cola
+    public int size() {
+        return size;
+    }
+
+    // Clase interna para representar un nodo de la cola
+    private static class Node<T> {
+        private T data;
+        private Node<T> next;
+
+        // Constructor
+        public Node(T data) {
+            this.data = data;
+            this.next = null;
+        }
+
+        // Getters y Setters
+        public T getData() {
+            return data;
+        }
+
+        public void setData(T data) {
+            this.data = data;
+        }
+
+        public Node<T> getNext() {
+            return next;
+        }
+
+        public void setNext(Node<T> next) {
+            this.next = next;
+        }
+    }
+}

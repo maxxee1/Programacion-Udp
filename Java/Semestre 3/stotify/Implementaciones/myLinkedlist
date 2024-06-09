@@ -1,0 +1,99 @@
+package stotify.clases;
+
+public class LinkedList<T> {
+    private Node<T> head;
+    private int size;
+
+    // Constructor
+    public LinkedList() {
+        head = null;
+        size = 0;
+    }
+
+    // Método para agregar un elemento al final de la lista
+    public void add(T data) {
+        Node<T> newNode = new Node<>(data);
+        if (head == null) {
+            head = newNode;
+        } else {
+            Node<T> current = head;
+            while (current.getNext() != null) {
+                current = current.getNext();
+            }
+            current.setNext(newNode);
+        }
+        size++;
+    }
+
+    // Método para eliminar un elemento de la lista
+    public void remove(T data) {
+        if (head == null) {
+            return;
+        }
+        if (head.getData().equals(data)) {
+            head = head.getNext();
+            size--;
+            return;
+        }
+        Node<T> current = head;
+        while (current.getNext() != null) {
+            if (current.getNext().getData().equals(data)) {
+                current.setNext(current.getNext().getNext());
+                size--;
+                return;
+            }
+            current = current.getNext();
+        }
+    }
+
+    // Método para eliminar todas las ocurrencias de un elemento de la lista
+    public void removeAll(T data) {
+        while (head != null && head.getData().equals(data)) {
+            head = head.getNext();
+            size--;
+        }
+        Node<T> current = head;
+        while (current != null && current.getNext() != null) {
+            if (current.getNext().getData().equals(data)) {
+                current.setNext(current.getNext().getNext());
+                size--;
+            } else {
+                current = current.getNext();
+            }
+        }
+    }
+
+    // Método para obtener el tamaño de la lista
+    public int size() {
+        return size;
+    }
+
+    // Clase interna para representar un nodo de la lista enlazada
+    private static class Node<T> {
+        private T data;
+        private Node<T> next;
+
+        // Constructor
+        public Node(T data) {
+            this.data = data;
+            this.next = null;
+        }
+
+        // Getters y Setters
+        public T getData() {
+            return data;
+        }
+
+        public void setData(T data) {
+            this.data = data;
+        }
+
+        public Node<T> getNext() {
+            return next;
+        }
+
+        public void setNext(Node<T> next) {
+            this.next = next;
+        }
+    }
+}

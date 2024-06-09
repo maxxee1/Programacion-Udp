@@ -1,0 +1,79 @@
+package stotify.clases;
+
+public class Stack<T> {
+    private Node<T> top;
+    private int size;
+
+    // Constructor
+    public Stack() {
+        top = null;
+        size = 0;
+    }
+
+    // Método para insertar un elemento en la cima del stack
+    public void push(T data) {
+        Node<T> newNode = new Node<>(data);
+        newNode.setNext(top);
+        top = newNode;
+        size++;
+    }
+
+    // Método para remover y devolver el elemento en la cima del stack
+    public T pop() {
+        if (isEmpty()) {
+            return null;
+        }
+        T data = top.getData();
+        top = top.getNext();
+        size--;
+        return data;
+    }
+
+    // Método para obtener el elemento en la cima del stack sin removerlo
+    public T peek() {
+        if (isEmpty()) {
+            return null;
+        }
+        return top.getData();
+    }
+
+    // Método para verificar si el stack está vacío
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
+    // Método para obtener el tamaño del stack
+    public int size() {
+        return size;
+    }
+
+    // Clase interna para representar un nodo del stack
+    private static class Node<T> {
+        private T data;
+        private Node<T> next;
+
+        // Constructor
+        public Node(T data) {
+            this.data = data;
+            this.next = null;
+        }
+
+        // Getters y Setters
+        public T getData() {
+            return data;
+        }
+
+        public void setData(T data) {
+            this.data = data;
+        }
+
+        public Node<T> getNext() {
+            return next;
+        }
+
+        public void setNext(Node<T> next) {
+            this.next = next;
+        }
+    }
+}
+ 

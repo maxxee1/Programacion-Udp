@@ -83,7 +83,7 @@ public class MetodosOrdenamiento {
         return i + 1;
     }
 
-    // InsertionSort
+    // InsertionSort1
     public static List<Cancion> insertionSort(List<Cancion> canciones) {
         List<Cancion> sorted = new ArrayList<>(canciones);
         for (int i = 1; i < sorted.size(); i++) {
@@ -97,6 +97,23 @@ public class MetodosOrdenamiento {
         }
         return sorted;
     }
+    //insertionSort2
+    /*public static List<Cancion> insertionSort(List<Cancion> canciones) {
+        List<Cancion> sorted = new ArrayList<>(canciones);
+        for (int i = 1; i < sorted.size(); i++) {
+            Cancion key = sorted.get(i);
+            int j = i - 1;
+            System.out.println("i: " + i + ", key: " + key);
+            while (j >= 0 && sorted.get(j).getDuracion() > key.getDuracion()) {
+                sorted.set(j + 1, sorted.get(j));
+                j = j - 1;
+                System.out.println("j: " + j);
+            }
+            sorted.set(j + 1, key);
+        }
+        return sorted;
+    }*/
+    
 
     // BubbleSort
     public static List<Cancion> bubbleSort(List<Cancion> canciones) {

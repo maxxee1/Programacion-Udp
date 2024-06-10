@@ -8,7 +8,7 @@ public class TestGenerator {
         StringBuilder sb = new StringBuilder();
 
         // Constants
-        int songQty = 10000000; // 1 million
+        int songQty = 10; // 10 millon
         int queryQty = songQty / 10; // 10% of songQty
         int songNameLenght = 20;
 

@@ -11,9 +11,8 @@ public class Main {
         // Crear la base de datos de canciones
         BaseDeDatosCanciones baseDeDatos = new BaseDeDatosCanciones();
 
-        // Proporciona la ruta completa al archivo CSV
-        cargarCancionesDesdeCSV(baseDeDatos, "C:\\Users\\Asus\\Matias folder\\Spotify_2\\songs.csv");
-
+        // Proporciona la ruta completa al archivo CSV;
+        cargarCancionesDesdeCSV(baseDeDatos,"C:\\Code\\songs.csv");
         // Obtener la lista de canciones
         List<Cancion> canciones = baseDeDatos.getCanciones();
 
@@ -33,7 +32,7 @@ public class Main {
         // Medir y realizar los ordenamientos
         long start, finish;
 
-        // MergeSort
+        //MergeSort
         start = System.nanoTime();
         mergeSorted = MetodosOrdenamiento.mergeSort(mergeSorted);
         finish = System.nanoTime();

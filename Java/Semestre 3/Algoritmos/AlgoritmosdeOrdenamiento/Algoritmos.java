@@ -1,4 +1,4 @@
-package AlgoritmosdeOrdenamiento;
+package Algoritmos.AlgoritmosdeOrdenamiento;
 
 public class Algoritmos {
 

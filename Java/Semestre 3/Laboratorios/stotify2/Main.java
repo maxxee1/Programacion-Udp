@@ -75,17 +75,17 @@ public class Main {
             String nombre = canciones.get(i).nombre;
             int duracion = canciones.get(i).duracion;
 
-            // Búsqueda en árbol balanceado por nombre
-            start = System.nanoTime();
-            arbolBalanceadoPorNombre.buscarCancionPorNombre(nombre);
-            finish = System.nanoTime();
-            tiempoTotalOrdenado += (finish - start);
-
             // Búsqueda en árbol desordenado por nombre
             start = System.nanoTime();
             arbolDesordenadoPorNombre.buscarCancionPorNombre(nombre);
             finish = System.nanoTime();
             tiempoTotalDesordenado += (finish - start);
+
+            // Búsqueda en árbol balanceado por nombre
+            start = System.nanoTime();
+            arbolBalanceadoPorNombre.buscarCancionPorNombre(nombre);
+            finish = System.nanoTime();
+            tiempoTotalOrdenado += (finish - start);
 
             // Búsqueda en árbol por duración
             start = System.nanoTime();
@@ -94,8 +94,9 @@ public class Main {
             tiempoTotalDuracion += (finish - start);
         }
 
-        System.out.println("Tiempo total consultas en árbol balanceado por nombre: " + tiempoTotalOrdenado + " ns.");
+        
         System.out.println("Tiempo total consultas en árbol desordenado por nombre: " + tiempoTotalDesordenado + " ns.");
+        System.out.println("Tiempo total consultas en árbol balanceado por nombre: " + tiempoTotalOrdenado + " ns.");
         System.out.println("Tiempo total consultas en árbol por duración: " + tiempoTotalDuracion + " ns.");
     }
     private static void cargarCancionesDesdeCSV(BaseDeDatosCanciones baseDeDatos, String rutaArchivo) {

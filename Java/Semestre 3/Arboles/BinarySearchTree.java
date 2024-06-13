@@ -137,7 +137,6 @@ public class BinarySearchTree {
         System.out.println();
         System.out.println("Recorrido por nivel: ");
         arbol.byleveltransversal(arbol.raiz);
-
     }
 }
 

@@ -31,7 +31,7 @@ public class Algoritmosdeordenamiento {
             for (j = 0; j < arreglo.length - 1 - i; j++) {
                 // Si el elemento actual es mayor que el siguiente, intercambiarlos
                 if (arreglo[j] > arreglo[j + 1]) {
-                    // Intercambio de elementos
+                    // Intercambio de elementos 
                     int temp = arreglo[j];
                     arreglo[j] = arreglo[j + 1];
                     arreglo[j + 1] = temp;

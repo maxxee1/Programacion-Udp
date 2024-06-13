@@ -7,4 +7,4 @@ Aquí encontrarás un código simple que genera un arreglo de 100 elementos y of
 * Quick sort
 
 >[!TIP]
->Puedes implementar el algoritmo que más te guste, pero para una gran cantidad de datos, recomiendo investigar sobre la complejidad temporal de estos mismos.
+>Puedes elegir cualquier algoritmo que prefieras, pero te recomiendo investigar sobre su complejidad temporal, su capacidad para mantener el orden relativo y si son in-place.

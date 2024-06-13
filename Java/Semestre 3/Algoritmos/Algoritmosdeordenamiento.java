@@ -22,6 +22,7 @@ public class Algoritmosdeordenamiento {
         }
         System.out.println();
     }
+    
     public static void bubbleSort (int [] arreglo) {
 
         int i, j;

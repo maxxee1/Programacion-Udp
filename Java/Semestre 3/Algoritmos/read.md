@@ -6,3 +6,6 @@ Desde el main, puedes llamar al método que prefieras y, si deseas, imprimir los
 * Insertion sort
 * Merge sort
 * Quick sort
+
+>[!NOTE]
+>HOLA

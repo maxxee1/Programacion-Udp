@@ -124,7 +124,6 @@ public class BinarySearchTree {
         arbol.insertar(60);
         arbol.insertar(80);
 
-
         /*---------- Recorridos ----------*/
 
         System.out.println("Recorrido Inorder: ");

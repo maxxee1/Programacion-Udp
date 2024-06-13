@@ -143,6 +143,9 @@ public class Algoritmos {
     public static void main(String[] args) {
 
         int [] arreglo = generarArreglo();
+        // Llamar al metodo de ordenamiento deseado
+        // Ejemplo: bubbleSort(arreglo);
+
         imprimirArreglo(arreglo);
         bubbleSort(arreglo);
         imprimirArreglo(arreglo);

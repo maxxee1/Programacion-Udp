@@ -7,5 +7,5 @@ Desde el main, puedes llamar al método que prefieras y, si deseas, imprimir los
 * Merge sort
 * Quick sort
 
->[!NOTE]
->HOLA
+>[!TIP]
+> Puedes implementar el algoritmo que mas te guste, pero para una gran cantidad de datos recomiendo investigar sobre la complejidad temporal de estos mismos.

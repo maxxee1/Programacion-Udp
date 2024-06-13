@@ -1,6 +1,6 @@
-package Algoritmos;
+package AlgoritmosdeOrdenamiento;
 
-public class Algoritmosdeordenamiento {
+public class Algoritmos {
 
     public static int [] generarArreglo() {
         int [] arreglo =new int [100];

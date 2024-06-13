@@ -145,6 +145,7 @@ public class Algoritmos {
         int [] arreglo = generarArreglo();
         // Llamar al metodo de ordenamiento deseado
         // Ejemplo: bubbleSort(arreglo);
+        
         imprimirArreglo(arreglo);
         bubbleSort(arreglo);
         imprimirArreglo(arreglo);

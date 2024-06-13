@@ -114,13 +114,8 @@ public class BinarySearchTree {
         //LlenarArbol.llenarArbol(arbol, 100);
 
         /*En este caso se insertan los elementos manualmente,
-        para vizualizar mejor los recorridos: inorder, preorder, postorder
-                 50
-                /  \
-              30    70
-              / \   / \
-             20  40 60 80
-                            */
+        para vizualizar mejor los recorridos: inorder, preorder, postorder*/
+    
         arbol.insertar(50);
         arbol.insertar(30);
         arbol.insertar(20);
@@ -143,7 +138,7 @@ public class BinarySearchTree {
         System.out.println();
         System.out.println("Recorrido por nivel: ");
         arbol.byleveltransversal(arbol.raiz);
-        
+
     }
 }
 

@@ -11,6 +11,7 @@ public class Algoritmos {
         }
         return arreglo;
     }
+    
     public static void imprimirArreglo(int [] arreglo) {
 
         int contador = 0;

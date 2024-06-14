@@ -5,7 +5,7 @@ class DefaaultPriority {
     public static void main(String[] args) {
 
         PriorityQueue<Integer> pq = new PriorityQueue<Integer>();
-        PriorityQueue<Integer> lambdapq = new PriorityQueue<Integer>();
+        PriorityQueue<Integer> lambdapq = new PriorityQueue<Integer>((a, b) -> b - a);
 
         // agregando items a la cola de prioridad
         pq.add(50);
@@ -18,7 +18,25 @@ class DefaaultPriority {
         lambdapq.add(30);
 
 
-        System.out.println("PriorityQueue: " + pq);
-        System.out.println("PriorityQueue con lambda: " + lambdapq);
+        // ---------- Cola de prioridad por defecto ----------
+
+       System.err.println("Cola de prioridad por defecto");
+        System.out.println(pq.peek());
+        System.out.println(pq.poll());
+        System.out.println(pq.peek());
+        System.out.println(pq.poll());
+        System.out.println(pq.peek());
+        System.out.println(pq.poll());
+
+        // ---------- Cola de prioridad con lambda ----------
+
+        System.err.println("Cola de prioridad con lambda");
+        System.out.println(lambdapq.peek());
+        System.out.println(lambdapq.poll());
+        System.out.println(lambdapq.peek());
+        System.out.println(lambdapq.poll());
+        System.out.println(lambdapq.peek());
+        System.out.println(lambdapq.poll());
+
     }
 }

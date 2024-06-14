@@ -6,5 +6,6 @@ Aquí encontrarás un código simple que genera un arreglo de 100 elementos y of
 * Merge sort.
 * Quick sort.
 
+
 >[!TIP]
 >Puedes elegir cualquier algoritmo que prefieras, pero te recomiendo investigar sobre su complejidad temporal, su capacidad para mantener el orden relativo y si son in-place.

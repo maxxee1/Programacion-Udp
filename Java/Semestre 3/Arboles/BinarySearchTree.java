@@ -13,7 +13,6 @@ class NodoBST {
     }
 }
 
-
 /*---------- Clase para el árbol binario de búsqueda ----------*/
 class BST {
     // Raíz del árbol

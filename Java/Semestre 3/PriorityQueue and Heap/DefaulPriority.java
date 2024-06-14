@@ -37,6 +37,5 @@ class DefaaultPriority {
         System.out.println(lambdapq.poll());
         System.out.println(lambdapq.peek());
         System.out.println(lambdapq.poll());
-
     }
 }
